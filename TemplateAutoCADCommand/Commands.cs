@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Покраска блоков панелей на чертеже.
+// Считаем, что в чертеже(документе) панели только одного проекта, и для этого чертежа определен один набор цветов для всех панелей (_tileColors)
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,20 +12,24 @@ using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.DatabaseServices;
 using Application = Autodesk.AutoCAD.ApplicationServices.Core.Application;
 
-[assembly: CommandClass(typeof(AutoCAD.Architect.TileColor.ExternalCommand))]
+[assembly: CommandClass(typeof(AutoCAD.Architect.TileColor.Commands))]
 
 namespace AutoCAD.Architect.TileColor
 {
-   public class ExternalCommand
+   public class Commands
    {
-      [CommandMethod("TileColor")]
-      public void TileColorCommand()
-      {
+      // Для кажого документа свой объект Commands, с уникальным для этого чертежа набором цветов и т.д.
+      // Статические данные будут одинаковыми для всех чертежей в текущем сеансе автокада.      
+      
+      // Покраска выбранных блоков панелей в соответствии со значениями цветов в атрибутах зон. Цвета назначаются в форме.      
+      [CommandMethod("TileColor", "PIK",CommandFlags.Modal | CommandFlags.NoBlockEditor)]
+      public void TileColorCommand()      {         
+
          var doc = Application.DocumentManager.MdiActiveDocument;
          var db = doc.Database;
          var ed = doc.Editor;
 
-         ed.WriteMessage("\nПробная версия покраски панели. Панель это блок с именем НС4_72-75, и с атрибутами зон с тегом начинающимся с 'з'. В блоке панели разложены блоки плитки с именем 'плитка' и с атрибутом зоны.");
+         ed.WriteMessage("\nПробная версия покраски панели. Панель это блок с именем НС4_72-75, и с атрибутами зон с тегом начинающимся с 'з'. В блоке панели разложены блоки плитки с именем 'плитка' и с атрибутом зоны.");         
 
          using (var t = db.TransactionManager.StartTransaction())
          {
@@ -70,6 +77,21 @@ namespace AutoCAD.Architect.TileColor
             }
             t.Commit();
          }
-      }      
+      }
+
+
+      // Список цветов в проекте для текущего документа. Сохраняется при повторном запуске команд в текущем сеансе работы автокада.
+      List<TileColor> _tileColors;
+
+      // Редактор для покраски панелей
+      [CommandMethod("PanelColorEditor", "PIK", CommandFlags.Modal | CommandFlags.NoBlockEditor)]
+      public void PanelColorEditorCommand()
+      {
+         // Поиск всех панелей в модели.
+         List<Panel> panels = Panel.GetAllPanelInModel();
+
+         // Форма для покраски панелей в форме по зонам (по типу панели, по типу покраски). Выбор блоков в модели для покраски.
+         FormPanelColorEditor formeditor = new FormPanelColorEditor();
+      }
    }
 }

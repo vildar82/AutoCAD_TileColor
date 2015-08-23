@@ -53,22 +53,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExternalCommand.cs" />
+    <Compile Include="Commands.cs" />
     <Compile Include="Model\FormColor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Model\FormColor.Designer.cs">
       <DependentUpon>FormColor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormPanelColorEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormPanelColorEditor.Designer.cs">
+      <DependentUpon>FormPanelColorEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Panel.cs" />
+    <Compile Include="Model\PanelTypeColor.cs" />
     <Compile Include="Model\Select.cs" />
     <Compile Include="Model\TileColor.cs" />
+    <Compile Include="Model\TypePanel.cs" />
     <Compile Include="Model\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Model\FormColor.resx">
       <DependentUpon>FormColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormPanelColorEditor.resx">
+      <DependentUpon>FormPanelColorEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

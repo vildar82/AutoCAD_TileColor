@@ -12,6 +12,12 @@ namespace AutoCAD.Architect.TileColor
       public string Name;
       public string TypeColor;
 
+      public override bool Equals(object obj)
+      {
+         Zone zone = obj as Zone;
+         return Name.Equals(zone.Name) && TypeColor.Equals(zone.TypeColor);
+      }
+
       public static List<Zone> GetZones(BlockReference blref)
       {
          List<Zone> zones = new List<Zone>();
@@ -36,6 +42,6 @@ namespace AutoCAD.Architect.TileColor
             t.Commit(); 
          } 
          return zones;
-      }
+      }      
    }
 }

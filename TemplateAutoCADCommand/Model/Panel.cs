@@ -10,8 +10,10 @@ namespace AutoCAD.Architect.TileColor
 {
    public class Panel
    {
-      public List<Zone> Zones;
-      public ObjectId IdBlRef;       
+      // Panel - объект панели для каждого блока(ref) панели в чертеже (с уникальным objectId).
+
+      List<Zone> _zones;
+      ObjectId _idBlRef;       
 
       public static List<Panel> GetPanels(List<ObjectId> idBlRefPanels)
       {
@@ -96,6 +98,39 @@ namespace AutoCAD.Architect.TileColor
             }
          }
          return res;
+      }
+
+      internal static List<Panel> GetAllPanelInModel()
+      {
+         //TODO Поиск всех панелей в Модели.
+         // Определение всех параметров панели:
+         //    Тип панели - по имени блока (вида ПП_4ОК_66-75). Имена блоков заданы. Пока одно имя ПП_4ОК_66-75.
+         //    Список зон (номера и типы покраски). Могут быть не заданы, если этот блок раньше еще не красился.
+         //    Тип покраски - если для зон заданы типы покраски. (ориентируясь на атрибуты зон, а не на цвета самих плиток в блоке панели).
+         //    Определение списка цветов проекта, если он пустой. По цветам плиток для типов зон.
+
+         List<Panel>
+         Database db = HostApplicationServices.WorkingDatabase;
+         
+         using (var t = db.TransactionManager.StartTransaction())
+         {
+            var bt = t.GetObject(db.BlockTableId, OpenMode.ForRead) as BlockTable;
+            var ma = t.GetObject (SymbolUtilityServices.BlockModelSpaceName)
+
+            foreach (ObjectId idEnt in selRes.Value.GetObjectIds())
+            {
+               if (idEnt.ObjectClass.Name == "AcDbBlockReference")
+               {
+                  var blRef = t.GetObject(idEnt, OpenMode.ForRead) as BlockReference;
+                  // Пока выбираем только блок с именем "НС4_72-75"
+                  if (GetEffectiveBlockName(blRef) == "НС4_72-75")
+                  {
+                     ids.Add(idEnt);
+                  }
+               }
+            }
+            t.Commit();
+         }
       }
    }
 }
