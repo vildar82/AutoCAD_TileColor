@@ -12,9 +12,13 @@ namespace AutoCAD.Architect.TileColor
 {
    public partial class FormPanelColorEditor : Form
    {
-      public FormPanelColorEditor()
+      Project project;
+
+      public FormPanelColorEditor(Project project)
       {
          InitializeComponent();
+
+         this.project = project; 
       }
    }
 }

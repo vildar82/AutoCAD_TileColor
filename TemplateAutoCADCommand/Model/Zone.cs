@@ -18,15 +18,15 @@ namespace AutoCAD.Architect.TileColor
          return Name.Equals(zone.Name) && TypeColor.Equals(zone.TypeColor);
       }
 
-      public static List<Zone> GetZones(BlockReference blref)
+      public static List<Zone> GetZones(BlockReference blRef)
       {
          List<Zone> zones = new List<Zone>();
 
          Database db = HostApplicationServices.WorkingDatabase;
 
          using (var t = db.TransactionManager.StartTransaction () )
-         {
-            foreach (ObjectId id in blref.AttributeCollection)
+         {            
+            foreach (ObjectId id in blRef.AttributeCollection)
             {
                var attRef = t.GetObject(id, OpenMode.ForRead) as AttributeReference;
                // Если тег атрибута начинается с з, то это номер зоны, значение атрибута это тип цвета
