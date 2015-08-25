@@ -1,4 +1,6 @@
-﻿namespace AutoCAD.Architect.TileColor
+﻿using System;
+
+namespace AutoCAD.Architect.TileColor
 {
    partial class FormPanelColorEditor
    {
@@ -923,7 +925,7 @@
          this.ResumeLayout(false);
          this.PerformLayout();
 
-      }
+      }     
 
       #endregion
 

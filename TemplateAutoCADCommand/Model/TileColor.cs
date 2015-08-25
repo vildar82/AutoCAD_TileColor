@@ -11,6 +11,12 @@ namespace AutoCAD.Architect.TileColor
    public class TileColor
    {
       public Color Color;
-      public string TypeColor { get; set; }            
+      public string Name { get; set; }            
+
+      public TileColor (string name, Color color)
+      {
+         Color = color;
+         Name = name;
+      }
    }
 }

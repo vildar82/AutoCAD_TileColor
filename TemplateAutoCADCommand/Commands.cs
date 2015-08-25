@@ -29,12 +29,14 @@ namespace AutoCAD.Architect.TileColor
       {
          if (project == null)
          {
-            project = new Project();
-            project.CurrentPanels(); 
+            // Создание нового проекта. Поиск панелей на чертеже. Запуск редактора форм.
+            project = new Project();            
          }
-
-         // Форма для покраски панелей в форме по зонам (по типу панели, по типу покраски). Выбор блоков в модели для покраски.
-         project.Editor(); 
+         else
+         {
+            // Повторный запуск в документе! 
+            // 
+         }
       }
    }
 }

@@ -12,106 +12,67 @@ namespace AutoCAD.Architect.TileColor
 {
    public partial class FormPanelColorEditor : Form
    {
-      Project project;
-
-      public FormPanelColorEditor(Project project)
+      public FormPanelColorEditor(List<PanelType> panelTypes, List<TileColor> colors)
       {
          InitializeComponent();
 
-         this.project = project;
+         comboBoxPaneltype.DataSource = panelTypes;
+         comboBoxColor.DataSource = colors;           
+      }  
 
-         // Заполнение типов панелей
-         FillComboBoxPanelType();
-
-         // Заполнение цветов
-         FillColors();
-      }
-      
-      // Заполнение типов панелей
-      private void FillComboBoxPanelType()
-      {
-         comboBoxPaneltype.Items.Clear(); 
-         comboBoxPaneltype.Items.AddRange(project.panelsType.Keys.ToArray());
-      }    
-      
-      // Заполнение цветов
-      private void FillColors()
-      {
-         comboBoxColor.Items.Clear();
-         foreach (var item in project.colors.Values)
-         {
-            comboBoxColor.Items.Add(item);
-         }         
-      }
-
-      // Заполнение типов окраски      
-      private void FillPanelTypeColor()
-      {
-         comboBoxPanelTypeColor.Items.Clear();
-
-         if (comboBoxPaneltype.SelectedIndex == -1)
-            return;
-         PanelType paneltype = (PanelType)comboBoxPaneltype.SelectedItem;         
-         foreach (PanelTypeColor item in paneltype.Panels.Values)
-         {
-            comboBoxPanelTypeColor.Items.Add(item); 
-         }            
-      }
-
-      // Переключение типа панели
-      private void comboBoxPaneltype_SelectedIndexChanged(object sender, EventArgs e)
-      {
-         // Переключение таба на выбранную панель
-         string panelTypeName = (string)comboBoxPaneltype.SelectedItem;
-         switch (panelTypeName)
-         {
-            case "ПП_4ОК_66-75":
-               tabControl1.SelectedIndex = 0;
-               break;
-         }
-         // Заполнение типов окраски.
-         FillPanelTypeColor();
-      }
-
-      // Переключение типа окраски
-      private void comboBoxPanelTypeColor_SelectedIndexChanged(object sender, EventArgs e)
-      {
-         PanelTypeColor ptc = (PanelTypeColor)comboBoxPanelTypeColor.SelectedItem;
-         ResetPanelColor();
-         foreach (Zone zone in ptc.Zones)
-         {
-            foreach (Control control in tabControl1.SelectedTab.Controls)
-            {
-               if (control.Tag.ToString() == zone.Name)
-               {
-                  control.BackColor = zone.ZoneColor.Color.ColorValue;
-                  continue;
-               }
-            } 
-         }
-      }
-
-      private void ResetPanelColor()
-      {
-         foreach (Control control in tabControl1.SelectedTab.Controls)
-         {
-            if (control.Tag != null )
-            {
-               control.BackColor = Color.Transparent;               
-            }
-         }
-      }
-
+      // Покраска зоны на форме.
       private void panel_Click(object sender, EventArgs e)
       {
-         System.Windows.Forms.Panel panel = (System.Windows.Forms.Panel)sender;
-         string tag = panel.Tag.ToString();
+         System.Windows.Forms.Panel panelCtrl = (System.Windows.Forms.Panel)sender;
+         string tag = panelCtrl.Tag.ToString();// Tag - номер зоны (11).
 
          TileColor tylecolor = (TileColor)comboBoxColor.SelectedItem; 
 
          PanelTypeColor ptc = (PanelTypeColor)comboBoxPanelTypeColor.SelectedItem;
          Zone zone = ptc.Zones.Find(z => z.Name == tag);
-         zone.ZoneColor = tylecolor;         
+         zone.ZoneColor = tylecolor;
+
+         panelCtrl.BackColor = zone.ZoneColor.Color.ColorValue;  
+      }
+
+      // Смена типа панели. (ПП_4ОК_66-75)
+      private void comboBoxPaneltype_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         // Заполнение типов окраски этого типа панелей
+         PanelType panelType = (PanelType)comboBoxPaneltype.SelectedItem;
+         comboBoxPanelTypeColor.DataSource = panelType.PanelTypeColors;
+         
+         // Переключение вкладки панелей для раскраски этого типа панелей.
+         int tabIndex = 0;
+         switch (panelType.Name)
+         {
+            case "ПП_4ОК_66-75":
+               tabIndex = 0;
+               break;            
+         }
+         tabControl1.SelectedIndex = tabIndex; 
+      }
+
+      // Смена типа окраски панели
+      private void comboBoxPanelTypeColor_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         PanelTypeColor ptc = (PanelTypeColor)comboBoxPanelTypeColor.SelectedItem;
+         // раскраска панелей на вкладке
+         PanelControlsPaint(ptc);
+      }
+
+      private void PanelControlsPaint (PanelTypeColor ptc)
+      {
+         TabPage tabPage = tabControl1.SelectedTab;
+
+         foreach (Control item in tabPage.Controls)
+         {
+            var panelControl = item as System.Windows.Forms.Panel;
+            if (panelControl == null)
+               continue;
+            string tag = panelControl.Tag.ToString();
+            panelControl.BackColor =  ptc.GetColorForZone(tag);
+         } 
       }
    }
 }
