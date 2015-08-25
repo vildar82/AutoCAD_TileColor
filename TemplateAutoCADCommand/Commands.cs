@@ -34,7 +34,7 @@ namespace AutoCAD.Architect.TileColor
          }
 
          // Форма для покраски панелей в форме по зонам (по типу панели, по типу покраски). Выбор блоков в модели для покраски.
-         FormPanelColorEditor formeditor = new FormPanelColorEditor(project);
+         project.Editor(); 
       }
    }
 }

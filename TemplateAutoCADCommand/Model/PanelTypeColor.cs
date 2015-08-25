@@ -14,6 +14,7 @@ namespace AutoCAD.Architect.TileColor
       public List<Zone> Zones;
       public int Number; // уникальный номер типа покраски для типа панелей (записывается в параметр блока панели).
       // нужно как-то определять уникальное сочетание зон (_zones).
+      public Image Preview;
 
       public PanelTypeColor (int number)
       {
@@ -67,7 +68,7 @@ namespace AutoCAD.Architect.TileColor
       {
          //TODO определение цветов для типов цветов по цветам плитки, используя первую панель в списке Panels.
          var typeColorInPanel = Zones.GroupBy(zone => zone.TypeColor).Select(z => z.Key);
-         
+                  
       }
    }
 }

@@ -12,9 +12,9 @@ namespace AutoCAD.Architect.TileColor
 {
    public static class Select
    {
+      // Выбор блоков панелей в чертеже.
       public static List<ObjectId> GetBlockRefPanels(Document doc)
-      {
-         // Выбор блоков панелей в чертеже.
+      {         
          List<ObjectId> ids = new List<ObjectId>();
 
          Editor ed = doc.Editor;
@@ -44,15 +44,17 @@ namespace AutoCAD.Architect.TileColor
          }
          return ids;
       }
-
+      
+      // Определение имени блока (для дин блоков неанонимное имя)
       public static string GetEffectiveBlockName (BlockReference blref)
       {
          string res = string.Empty; 
          if (blref.IsDynamicBlock)
          {
-            var btr =blref.DynamicBlockTableRecord.GetObject(OpenMode.ForRead) as BlockTableRecord;
-            res = btr.Name;
-            btr.Close();
+            using (var btr = blref.DynamicBlockTableRecord.GetObject(OpenMode.ForRead) as BlockTableRecord)
+            {
+               res = btr.Name;               
+            }
          }
          else
          {

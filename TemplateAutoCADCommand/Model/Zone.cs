@@ -9,8 +9,18 @@ namespace AutoCAD.Architect.TileColor
 {
    public class Zone
    {      
+      /// <summary>
+      /// Имя зоны - тег зоны, без "з".
+      /// </summary>
       public string Name;
+      /// <summary>
+      /// Значение атрибута зоны
+      /// </summary>
       public string TypeColor;
+      /// <summary>
+      /// Назначенный цвет зоне для покраски.
+      /// </summary>
+      public TileColor ZoneColor;      
 
       public override bool Equals(object obj)
       {
@@ -21,7 +31,6 @@ namespace AutoCAD.Architect.TileColor
       public static List<Zone> GetZones(BlockReference blRef)
       {
          List<Zone> zones = new List<Zone>();
-
          Database db = HostApplicationServices.WorkingDatabase;
 
          using (var t = db.TransactionManager.StartTransaction () )
@@ -35,7 +44,8 @@ namespace AutoCAD.Architect.TileColor
                   Zone zone = new Zone();
                   zone.Name = attRef.Tag.Substring(1);
                   zone.TypeColor = attRef.TextString;
-                  TileColor.AddTypeColor(zone.TypeColor);
+                  // Определение покраски плитки ZoneColor?
+                  // ?            
                   zones.Add(zone);
                }
             }
