@@ -18,5 +18,10 @@ namespace AutoCAD.Architect.TileColor
          Color = color;
          Name = name;
       }
+
+      public static TileColor Default ()
+      {
+         return new TileColor("1", Color.FromColorIndex(ColorMethod.ByAci, 1));
+      }
    }
 }

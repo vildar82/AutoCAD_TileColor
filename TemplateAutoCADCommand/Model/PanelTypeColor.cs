@@ -26,11 +26,15 @@ namespace AutoCAD.Architect.TileColor
       }
 
       // Дефолтный тип окраски
-      public static PanelTypeColor Default(PanelType panelType, int number)
+      public static PanelTypeColor Default(PanelType panelType, int number, TileColor color)
       {
          PanelTypeColor ptcDef = new PanelTypeColor();
          ptcDef.Number = number;
          ptcDef.Zones = panelType.ZonesTemplate;
+         foreach (Zone zone in ptcDef.Zones)
+         {
+            zone.ZoneColor = color;
+         }
          return ptcDef; 
       }
 
@@ -74,11 +78,11 @@ namespace AutoCAD.Architect.TileColor
                   
       }
 
-      // Определение цвета по номеру зоны
-      public System.Drawing.Color GetColorForZone(string zoneNumber)
+      // Определение зоны по номеру зоны
+      public Zone GetZone(string zoneNumber)
       {
          var zone = Zones.Find(z => z.Name == zoneNumber);
-         return zone.ZoneColor.Color.ColorValue;
+         return zone;
       }
    }
 }

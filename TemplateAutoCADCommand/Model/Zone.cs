@@ -27,6 +27,10 @@ namespace AutoCAD.Architect.TileColor
          Zone zone = obj as Zone;
          return Name.Equals(zone.Name) && TypeColor.Equals(zone.TypeColor);
       }
+      public override int GetHashCode()
+      {
+         return Name.GetHashCode();
+      }
 
       // Сортировка списка зон
       private static void Sort(List<Zone> zones)

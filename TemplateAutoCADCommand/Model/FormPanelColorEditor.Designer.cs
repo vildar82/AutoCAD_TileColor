@@ -85,7 +85,7 @@ namespace AutoCAD.Architect.TileColor
          this.comboBoxColor = new System.Windows.Forms.ComboBox();
          this.label1 = new System.Windows.Forms.Label();
          this.label2 = new System.Windows.Forms.Label();
-         this.comboBoxPaneltype = new System.Windows.Forms.ComboBox();
+         this.comboBoxPanelType = new System.Windows.Forms.ComboBox();
          this.comboBoxPanelTypeColor = new System.Windows.Forms.ComboBox();
          this.label3 = new System.Windows.Forms.Label();
          this.buttonPaint = new System.Windows.Forms.Button();
@@ -879,14 +879,14 @@ namespace AutoCAD.Architect.TileColor
          this.label2.TabIndex = 2;
          this.label2.Text = "Тип панели";
          // 
-         // comboBoxPaneltype
+         // comboBoxPanelType
          // 
-         this.comboBoxPaneltype.FormattingEnabled = true;
-         this.comboBoxPaneltype.Location = new System.Drawing.Point(12, 31);
-         this.comboBoxPaneltype.Name = "comboBoxPaneltype";
-         this.comboBoxPaneltype.Size = new System.Drawing.Size(121, 21);
-         this.comboBoxPaneltype.TabIndex = 1;
-         this.comboBoxPaneltype.SelectedIndexChanged += new System.EventHandler(this.comboBoxPaneltype_SelectedIndexChanged);
+         this.comboBoxPanelType.FormattingEnabled = true;
+         this.comboBoxPanelType.Location = new System.Drawing.Point(12, 31);
+         this.comboBoxPanelType.Name = "comboBoxPanelType";
+         this.comboBoxPanelType.Size = new System.Drawing.Size(121, 21);
+         this.comboBoxPanelType.TabIndex = 1;
+         this.comboBoxPanelType.SelectedIndexChanged += new System.EventHandler(this.comboBoxPaneltype_SelectedIndexChanged);
          // 
          // comboBoxPanelTypeColor
          // 
@@ -926,7 +926,7 @@ namespace AutoCAD.Architect.TileColor
          this.Controls.Add(this.label2);
          this.Controls.Add(this.comboBoxPanelTypeColor);
          this.Controls.Add(this.label1);
-         this.Controls.Add(this.comboBoxPaneltype);
+         this.Controls.Add(this.comboBoxPanelType);
          this.Controls.Add(this.comboBoxColor);
          this.Controls.Add(this.tabControl1);
          this.Name = "FormPanelColorEditor";
@@ -996,7 +996,7 @@ namespace AutoCAD.Architect.TileColor
       private System.Windows.Forms.ComboBox comboBoxColor;
       private System.Windows.Forms.Label label1;
       private System.Windows.Forms.Label label2;
-      private System.Windows.Forms.ComboBox comboBoxPaneltype;
+      private System.Windows.Forms.ComboBox comboBoxPanelType;
       private System.Windows.Forms.ComboBox comboBoxPanelTypeColor;
       private System.Windows.Forms.Label label3;
       private System.Windows.Forms.Button buttonPaint;

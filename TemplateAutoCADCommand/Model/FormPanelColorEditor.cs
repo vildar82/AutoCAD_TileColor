@@ -20,8 +20,8 @@ namespace AutoCAD.Architect.TileColor
 
          _project = project;
 
-         comboBoxPaneltype.DataSource = _project.PanelTypes;
-         comboBoxPaneltype.DisplayMember = "Name";
+         comboBoxPanelType.DataSource = _project.PanelTypes;
+         comboBoxPanelType.DisplayMember = "Name";
 
          comboBoxColor.DataSource = _project.Colors;
          comboBoxColor.DisplayMember = "Name";
@@ -31,11 +31,11 @@ namespace AutoCAD.Architect.TileColor
       private void comboBoxPaneltype_SelectedIndexChanged(object sender, EventArgs e)
       {
          // Заполнение типов окраски этого типа панелей
-         PanelType panelType = (PanelType)comboBoxPaneltype.SelectedItem;
+         PanelType panelType = (PanelType)comboBoxPanelType.SelectedItem;
          if (panelType.PanelTypeColors.Count ==0)
          {
             // дефолтный тип окраски
-            PanelTypeColor ptcdefault = PanelTypeColor.Default(panelType, 1);
+            PanelTypeColor ptcdefault = PanelTypeColor.Default(panelType, 1, _project.Colors[0]);
             panelType.PanelTypeColors.Add(ptcdefault);
          }
          comboBoxPanelTypeColor.DataSource = panelType.PanelTypeColors;
@@ -78,17 +78,25 @@ namespace AutoCAD.Architect.TileColor
       private void PanelControlsPaint(PanelTypeColor ptc)
       {
          TabPage tabPage = tabControl1.SelectedTab;
-
          foreach (Control item in tabPage.Controls)
          {
-            var panelControl = item as System.Windows.Forms.Panel;
-            if (panelControl == null)
-               continue;
-            if (panelControl.Tag != null)
+            if (item is TableLayoutPanel)
             {
-               string tag = panelControl.Tag.ToString();
-               panelControl.BackColor = ptc.GetColorForZone(tag);
-            }            
+               TableLayoutPanel tableLayout = (TableLayoutPanel)item;
+               foreach (Control itemPanel in tableLayout.Controls)
+               {
+                  if (itemPanel is System.Windows.Forms.Panel)
+                  {
+                     System.Windows.Forms.Panel panelControl = (System.Windows.Forms.Panel)itemPanel;   
+                     if (panelControl.Tag != null)
+                     {
+                        string tag = panelControl.Tag.ToString();
+                        Zone zone = ptc.GetZone(tag);
+                        panelControl.BackColor = zone.ZoneColor.Color.ColorValue;
+                     }
+                  }
+               }
+            }           
          }
       }
 
@@ -96,10 +104,11 @@ namespace AutoCAD.Architect.TileColor
       private void buttonPaint_Click(object sender, EventArgs e)
       {
          // покраска выбранных блоков панелей по типу панели и типу окраски.
-         PanelType paneltype = (PanelType)comboBoxPaneltype.SelectedItem;
-         this.Hide();        
-         _project.PaintSelected(paneltype);
-         this.Show();        
+         PanelType panelType = (PanelType)comboBoxPanelType.SelectedItem;
+         PanelTypeColor ptc = (PanelTypeColor)comboBoxPanelTypeColor.SelectedItem;
+         Hide();        
+         _project.PaintSelected(panelType.Name,ptc);
+         Show();        
       }
    }
 }
