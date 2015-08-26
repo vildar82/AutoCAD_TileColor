@@ -28,7 +28,12 @@ namespace AutoCAD.Architect.TileColor
       public string Name
       {
          get { return _name; }
-         set { _name = value; }
+         private set { _name = value; }
+      }
+
+      public ObjectId IdBlRef
+      {
+         get { return _idBlRef; }
       }
 
       public static List<Panel> GetAllPanelInModel()

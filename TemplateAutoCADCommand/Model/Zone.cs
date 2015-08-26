@@ -28,13 +28,20 @@ namespace AutoCAD.Architect.TileColor
          return Name.Equals(zone.Name) && TypeColor.Equals(zone.TypeColor);
       }
 
-      public static List<Zone> GetZones(BlockReference blRef)
+      // Сортировка списка зон
+      private static void Sort(List<Zone> zones)
+      {
+         zones.Sort((x, y) => string.Compare(x.Name, y.Name));
+      }
+
+      public static List<Zone> GetZones(ObjectId idBlRef, bool defineColor)
       {
          List<Zone> zones = new List<Zone>();
          Database db = HostApplicationServices.WorkingDatabase;
 
          using (var t = db.TransactionManager.StartTransaction () )
-         {            
+         {
+            var blRef = t.GetObject(idBlRef, OpenMode.ForRead) as BlockReference;
             foreach (ObjectId id in blRef.AttributeCollection)
             {
                var attRef = t.GetObject(id, OpenMode.ForRead) as AttributeReference;
@@ -43,14 +50,18 @@ namespace AutoCAD.Architect.TileColor
                {
                   Zone zone = new Zone();
                   zone.Name = attRef.Tag.Substring(1);
-                  zone.TypeColor = attRef.TextString;
-                  // Определение покраски плитки ZoneColor?
-                  // ?            
+                  if (defineColor)
+                  {
+                     zone.TypeColor = attRef.TextString;
+                     // Определение покраски плитки ZoneColor?
+                     // ?            
+                  }
                   zones.Add(zone);
                }
             }
             t.Commit(); 
-         } 
+         }
+         Sort(zones);
          return zones;
       }      
    }

@@ -24,19 +24,15 @@ namespace AutoCAD.Architect.TileColor
       Project project;
 
       // Редактор для покраски панелей
-      [CommandMethod("PanelColorEditor", "PIK", CommandFlags.Modal | CommandFlags.NoBlockEditor)]
+      [CommandMethod("PIK", "PanelColorEditor" , CommandFlags.Modal | CommandFlags.NoBlockEditor)]
       public void PanelColorEditorCommand()
       {
          if (project == null)
          {
-            // Создание нового проекта. Поиск панелей на чертеже. Запуск редактора форм.
-            project = new Project();            
+            // Создание нового проекта.
+            project = new Project();                        
          }
-         else
-         {
-            // Повторный запуск в документе! 
-            // 
-         }
+         project.ShowEditor(); 
       }
    }
 }

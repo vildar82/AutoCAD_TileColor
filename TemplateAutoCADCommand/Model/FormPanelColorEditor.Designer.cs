@@ -88,6 +88,7 @@ namespace AutoCAD.Architect.TileColor
          this.comboBoxPaneltype = new System.Windows.Forms.ComboBox();
          this.comboBoxPanelTypeColor = new System.Windows.Forms.ComboBox();
          this.label3 = new System.Windows.Forms.Label();
+         this.buttonPaint = new System.Windows.Forms.Button();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
          this.tableLayoutPanel1.SuspendLayout();
@@ -905,11 +906,22 @@ namespace AutoCAD.Architect.TileColor
          this.label3.TabIndex = 2;
          this.label3.Text = "Тип окраски";
          // 
+         // buttonPaint
+         // 
+         this.buttonPaint.Location = new System.Drawing.Point(628, 57);
+         this.buttonPaint.Name = "buttonPaint";
+         this.buttonPaint.Size = new System.Drawing.Size(75, 23);
+         this.buttonPaint.TabIndex = 3;
+         this.buttonPaint.Text = "Покраска";
+         this.buttonPaint.UseVisualStyleBackColor = true;
+         this.buttonPaint.Click += new System.EventHandler(this.buttonPaint_Click);
+         // 
          // FormPanelColorEditor
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(1235, 700);
+         this.Controls.Add(this.buttonPaint);
          this.Controls.Add(this.label3);
          this.Controls.Add(this.label2);
          this.Controls.Add(this.comboBoxPanelTypeColor);
@@ -987,5 +999,6 @@ namespace AutoCAD.Architect.TileColor
       private System.Windows.Forms.ComboBox comboBoxPaneltype;
       private System.Windows.Forms.ComboBox comboBoxPanelTypeColor;
       private System.Windows.Forms.Label label3;
+      private System.Windows.Forms.Button buttonPaint;
    }
 }

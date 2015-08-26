@@ -10,19 +10,14 @@ namespace AutoCAD.Architect.TileColor
    // Тип покраски панели
    public class PanelTypeColor
    {      
-      public List<Zone> Zones;
-      public int Number; // уникальный номер типа покраски для типа панелей (записывается в параметр блока панели).
-      // нужно как-то определять уникальное сочетание зон (_zones).
-      public Image Preview;
+      public List<Zone> Zones;      
 
-      public PanelTypeColor (int number)
-      {
-         Number = number;         
+      public int Number { get; set; }
+
+      private PanelTypeColor ()
+      {                 
       }
-
-      private PanelTypeColor()
-      { }
-
+      
       // Сравнение двух типов покраски панели по списку зон.
       public bool TypeCompare(PanelTypeColor ptc)
       {
@@ -30,15 +25,25 @@ namespace AutoCAD.Architect.TileColor
          return Zones.SequenceEqual(ptc.Zones);
       }
 
+      // Дефолтный тип окраски
+      public static PanelTypeColor Default(PanelType panelType, int number)
+      {
+         PanelTypeColor ptcDef = new PanelTypeColor();
+         ptcDef.Number = number;
+         ptcDef.Zones = panelType.ZonesTemplate;
+         return ptcDef; 
+      }
+
       /// <summary>
       /// Попытка определения типа покраски из блока панели
       /// </summary>      
       public static PanelTypeColor GetTypeColor(BlockReference blRef)
       {
-         PanelTypeColor ptc = new PanelTypeColor();
-         ptc.Zones = Zone.GetZones(blRef);
-         ptc.Number = GetDynParamTypeColor(blRef);
-         return ptc;
+         throw new NotImplementedException();
+         //PanelTypeColor ptc = new PanelTypeColor();
+         //ptc.Zones = Zone.GetZones(blRef);
+         //ptc.Number = GetDynParamTypeColor(blRef);
+         //return ptc;
       }
 
       private static int GetDynParamTypeColor(BlockReference blRef)

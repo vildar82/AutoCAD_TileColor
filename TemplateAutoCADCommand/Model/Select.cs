@@ -62,5 +62,15 @@ namespace AutoCAD.Architect.TileColor
          }
          return res;
       }
+
+      public static List<ObjectId> SelectBlocks(string msg, string name)
+      {
+         Document doc = Application.DocumentManager.MdiActiveDocument;
+         Editor ed = doc.Editor;
+
+         var prOpt = new PromptSelectionOptions();
+         prOpt.MessageForAdding = "Выбор блоков панелей";
+         var selRes = ed.GetSelection(prOpt);
+      }
    }
 }
