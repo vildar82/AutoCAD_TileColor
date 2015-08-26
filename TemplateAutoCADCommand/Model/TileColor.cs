@@ -11,9 +11,9 @@ namespace AutoCAD.Architect.TileColor
    public class TileColor
    {
       public Color Color;
-      public string Name { get; set; }            
+      public int Name { get; set; }            
 
-      public TileColor (string name, Color color)
+      public TileColor (int name, Color color)
       {
          Color = color;
          Name = name;
@@ -21,7 +21,7 @@ namespace AutoCAD.Architect.TileColor
 
       public static TileColor Default ()
       {
-         return new TileColor("1", Color.FromColorIndex(ColorMethod.ByAci, 1));
+         return new TileColor(0, Color.FromColorIndex(ColorMethod.ByAci, 1));
       }
    }
 }

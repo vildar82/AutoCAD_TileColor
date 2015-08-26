@@ -12,8 +12,7 @@ namespace AutoCAD.Architect.TileColor
       // Типы покраски панелей
       public List<PanelTypeColor> PanelTypeColors;
       public string Name { get; set; }
-      private List<Zone> _zonesTemplate; // шаблон списка зон для типа панели. с дефолтным типом окраски и цветом. 
-      private IGrouping<string, Panel> p;
+      private List<Zone> _zonesTemplate; // шаблон списка зон для типа панели. с дефолтным типом окраски и цветом.       
 
       public List<Zone> ZonesTemplate
       {

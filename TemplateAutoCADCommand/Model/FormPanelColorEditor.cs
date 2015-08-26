@@ -110,5 +110,31 @@ namespace AutoCAD.Architect.TileColor
          _project.PaintSelected(panelType.Name,ptc);
          Show();        
       }
+
+      // Добавление цвета в проект
+      private void buttonAddColor_Click(object sender, EventArgs e)
+      {
+         Autodesk.AutoCAD.Windows.ColorDialog colorDlg = new Autodesk.AutoCAD.Windows.ColorDialog();
+         colorDlg.IncludeByBlockByLayer = false;         
+         var dlgRes = colorDlg.ShowDialog();
+         if (dlgRes == DialogResult.OK)
+         {
+            TileColor tileColor = new TileColor(_project.Colors.Count, colorDlg.Color);
+            _project.Colors.Add(tileColor);
+            comboBoxColor.DataSource = null;
+            comboBoxColor.DataSource = _project.Colors;   
+         }
+      }
+
+      private void comboBoxColor_DrawItem(object sender, DrawItemEventArgs e)
+      {         
+         e.DrawBackground();
+         var g = e.Graphics;
+         TileColor tileColor = (TileColor)((ComboBox)sender).Items[e.Index];         
+         Brush brush = new SolidBrush(tileColor.Color.ColorValue);
+         g.FillRectangle(brush,e.Bounds); 
+         // Draw the text    
+         g.DrawString(tileColor.Name.ToString(), ((Control)sender).Font, Brushes.Black, e.Bounds.X, e.Bounds.Y);
+      }
    }
 }
