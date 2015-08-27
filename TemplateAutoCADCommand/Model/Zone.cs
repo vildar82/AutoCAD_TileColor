@@ -12,11 +12,7 @@ namespace AutoCAD.Architect.TileColor
       /// <summary>
       /// Имя зоны - тег зоны, без "з".
       /// </summary>
-      public string Name;
-      /// <summary>
-      /// Значение атрибута зоны
-      /// </summary>
-      public string TypeColor;
+      public string Name;      
       /// <summary>
       /// Назначенный цвет зоне для покраски.
       /// </summary>
@@ -25,7 +21,8 @@ namespace AutoCAD.Architect.TileColor
       public override bool Equals(object obj)
       {
          Zone zone = obj as Zone;
-         return Name.Equals(zone.Name) && TypeColor.Equals(zone.TypeColor);
+         // ???
+         return Name.Equals(zone.Name) && ZoneColor.Equals(zone.ZoneColor);
       }
       public override int GetHashCode()
       {
@@ -56,9 +53,9 @@ namespace AutoCAD.Architect.TileColor
                   zone.Name = attRef.Tag.Substring(1);
                   if (defineColor)
                   {
-                     zone.TypeColor = attRef.TextString;
                      // Определение покраски плитки ZoneColor?
-                     // ?            
+                     // ?      
+                     throw new NotImplementedException();      
                   }
                   zones.Add(zone);
                }

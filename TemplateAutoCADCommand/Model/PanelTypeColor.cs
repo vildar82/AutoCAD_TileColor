@@ -26,15 +26,19 @@ namespace AutoCAD.Architect.TileColor
       }
 
       // Дефолтный тип окраски
-      public static PanelTypeColor Default(PanelType panelType, int number, TileColor color)
+      public static PanelTypeColor Default(List<Zone> zonesTemplate, int number, TileColor color)
       {
          PanelTypeColor ptcDef = new PanelTypeColor();
          ptcDef.Number = number;
-         ptcDef.Zones = panelType.ZonesTemplate;
-         foreach (Zone zone in ptcDef.Zones)
+         // Копирование зон из шаблона
+         ptcDef.Zones = new List<Zone>();
+         foreach (Zone zone in zonesTemplate)
          {
-            zone.ZoneColor = color;
-         }
+            Zone zoneCopy = new Zone();
+            zoneCopy.Name = zone.Name;
+            zoneCopy.ZoneColor = color;            
+            ptcDef.Zones.Add(zoneCopy);
+         }         
          return ptcDef; 
       }
 
@@ -74,8 +78,7 @@ namespace AutoCAD.Architect.TileColor
       public void GetColor(Dictionary<string, TileColor> colors)
       {
          //TODO определение цветов для типов цветов по цветам плитки, используя первую панель в списке Panels.
-         var typeColorInPanel = Zones.GroupBy(zone => zone.TypeColor).Select(z => z.Key);
-                  
+         throw new NotImplementedException();
       }
 
       // Определение зоны по номеру зоны

@@ -91,6 +91,9 @@ namespace AutoCAD.Architect.TileColor
          this.buttonPaint = new System.Windows.Forms.Button();
          this.buttonAddColor = new System.Windows.Forms.Button();
          this.buttonChangeColor = new System.Windows.Forms.Button();
+         this.buttonDelColor = new System.Windows.Forms.Button();
+         this.buttonAddPTC = new System.Windows.Forms.Button();
+         this.buttonDelPTC = new System.Windows.Forms.Button();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
          this.tableLayoutPanel1.SuspendLayout();
@@ -125,6 +128,7 @@ namespace AutoCAD.Architect.TileColor
          this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+         this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.tableLayoutPanel1.ColumnCount = 16;
          this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
          this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
@@ -191,6 +195,7 @@ namespace AutoCAD.Architect.TileColor
          this.tableLayoutPanel1.Controls.Add(this.panel66, 13, 0);
          this.tableLayoutPanel1.Controls.Add(this.panel67, 14, 0);
          this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
+         this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
          this.tableLayoutPanel1.Name = "tableLayoutPanel1";
          this.tableLayoutPanel1.RowCount = 6;
          this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.36415F));
@@ -208,6 +213,8 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panelWindow1.BackColor = System.Drawing.Color.DeepSkyBlue;
+         this.panelWindow1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+         this.panelWindow1.Cursor = System.Windows.Forms.Cursors.No;
          this.panelWindow1.Location = new System.Drawing.Point(151, 105);
          this.panelWindow1.Name = "panelWindow1";
          this.tableLayoutPanel1.SetRowSpan(this.panelWindow1, 2);
@@ -247,9 +254,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel11.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel11, 2);
-         this.panel11.Location = new System.Drawing.Point(3, 440);
+         this.panel11.Location = new System.Drawing.Point(1, 438);
+         this.panel11.Margin = new System.Windows.Forms.Padding(1);
          this.panel11.Name = "panel11";
-         this.panel11.Size = new System.Drawing.Size(142, 51);
+         this.panel11.Size = new System.Drawing.Size(146, 55);
          this.panel11.TabIndex = 0;
          this.panel11.Tag = "11";
          this.panel11.Click += new System.EventHandler(this.panel_Click);
@@ -274,9 +282,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel12.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel12, 3);
-         this.panel12.Location = new System.Drawing.Point(151, 440);
+         this.panel12.Location = new System.Drawing.Point(149, 438);
+         this.panel12.Margin = new System.Windows.Forms.Padding(1);
          this.panel12.Name = "panel12";
-         this.panel12.Size = new System.Drawing.Size(216, 51);
+         this.panel12.Size = new System.Drawing.Size(220, 55);
          this.panel12.TabIndex = 0;
          this.panel12.Tag = "12";
          this.panel12.Click += new System.EventHandler(this.panel_Click);
@@ -287,9 +296,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel13.BackColor = System.Drawing.Color.Silver;
-         this.panel13.Location = new System.Drawing.Point(373, 440);
+         this.panel13.Location = new System.Drawing.Point(371, 438);
+         this.panel13.Margin = new System.Windows.Forms.Padding(1);
          this.panel13.Name = "panel13";
-         this.panel13.Size = new System.Drawing.Size(68, 51);
+         this.panel13.Size = new System.Drawing.Size(72, 55);
          this.panel13.TabIndex = 0;
          this.panel13.Tag = "13";
          this.panel13.Click += new System.EventHandler(this.panel_Click);
@@ -301,9 +311,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel14.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel14, 4);
-         this.panel14.Location = new System.Drawing.Point(447, 440);
+         this.panel14.Location = new System.Drawing.Point(445, 438);
+         this.panel14.Margin = new System.Windows.Forms.Padding(1);
          this.panel14.Name = "panel14";
-         this.panel14.Size = new System.Drawing.Size(290, 51);
+         this.panel14.Size = new System.Drawing.Size(294, 55);
          this.panel14.TabIndex = 0;
          this.panel14.Tag = "14";
          this.panel14.Click += new System.EventHandler(this.panel_Click);
@@ -315,9 +326,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel15.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel15, 3);
-         this.panel15.Location = new System.Drawing.Point(743, 440);
+         this.panel15.Location = new System.Drawing.Point(741, 438);
+         this.panel15.Margin = new System.Windows.Forms.Padding(1);
          this.panel15.Name = "panel15";
-         this.panel15.Size = new System.Drawing.Size(216, 51);
+         this.panel15.Size = new System.Drawing.Size(220, 55);
          this.panel15.TabIndex = 0;
          this.panel15.Tag = "15";
          this.panel15.Click += new System.EventHandler(this.panel_Click);
@@ -328,9 +340,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel16.BackColor = System.Drawing.Color.Silver;
-         this.panel16.Location = new System.Drawing.Point(965, 440);
+         this.panel16.Location = new System.Drawing.Point(963, 438);
+         this.panel16.Margin = new System.Windows.Forms.Padding(1);
          this.panel16.Name = "panel16";
-         this.panel16.Size = new System.Drawing.Size(68, 51);
+         this.panel16.Size = new System.Drawing.Size(72, 55);
          this.panel16.TabIndex = 0;
          this.panel16.Tag = "16";
          this.panel16.Click += new System.EventHandler(this.panel_Click);
@@ -342,9 +355,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel17.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel17, 2);
-         this.panel17.Location = new System.Drawing.Point(1039, 440);
+         this.panel17.Location = new System.Drawing.Point(1037, 438);
+         this.panel17.Margin = new System.Windows.Forms.Padding(1);
          this.panel17.Name = "panel17";
-         this.panel17.Size = new System.Drawing.Size(150, 51);
+         this.panel17.Size = new System.Drawing.Size(154, 55);
          this.panel17.TabIndex = 0;
          this.panel17.Tag = "17";
          this.panel17.Click += new System.EventHandler(this.panel_Click);
@@ -356,9 +370,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel21.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel21, 2);
-         this.panel21.Location = new System.Drawing.Point(3, 384);
+         this.panel21.Location = new System.Drawing.Point(1, 382);
+         this.panel21.Margin = new System.Windows.Forms.Padding(1);
          this.panel21.Name = "panel21";
-         this.panel21.Size = new System.Drawing.Size(142, 50);
+         this.panel21.Size = new System.Drawing.Size(146, 54);
          this.panel21.TabIndex = 0;
          this.panel21.Tag = "21";
          this.panel21.Click += new System.EventHandler(this.panel_Click);
@@ -370,9 +385,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel22.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel22, 3);
-         this.panel22.Location = new System.Drawing.Point(151, 384);
+         this.panel22.Location = new System.Drawing.Point(149, 382);
+         this.panel22.Margin = new System.Windows.Forms.Padding(1);
          this.panel22.Name = "panel22";
-         this.panel22.Size = new System.Drawing.Size(216, 50);
+         this.panel22.Size = new System.Drawing.Size(220, 54);
          this.panel22.TabIndex = 0;
          this.panel22.Tag = "22";
          this.panel22.Click += new System.EventHandler(this.panel_Click);
@@ -383,9 +399,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel23.BackColor = System.Drawing.Color.Silver;
-         this.panel23.Location = new System.Drawing.Point(373, 384);
+         this.panel23.Location = new System.Drawing.Point(371, 382);
+         this.panel23.Margin = new System.Windows.Forms.Padding(1);
          this.panel23.Name = "panel23";
-         this.panel23.Size = new System.Drawing.Size(68, 50);
+         this.panel23.Size = new System.Drawing.Size(72, 54);
          this.panel23.TabIndex = 0;
          this.panel23.Tag = "23";
          this.panel23.Click += new System.EventHandler(this.panel_Click);
@@ -397,9 +414,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel24.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel24, 4);
-         this.panel24.Location = new System.Drawing.Point(447, 384);
+         this.panel24.Location = new System.Drawing.Point(445, 382);
+         this.panel24.Margin = new System.Windows.Forms.Padding(1);
          this.panel24.Name = "panel24";
-         this.panel24.Size = new System.Drawing.Size(290, 50);
+         this.panel24.Size = new System.Drawing.Size(294, 54);
          this.panel24.TabIndex = 0;
          this.panel24.Tag = "24";
          this.panel24.Click += new System.EventHandler(this.panel_Click);
@@ -411,9 +429,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel25.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel25, 3);
-         this.panel25.Location = new System.Drawing.Point(743, 384);
+         this.panel25.Location = new System.Drawing.Point(741, 382);
+         this.panel25.Margin = new System.Windows.Forms.Padding(1);
          this.panel25.Name = "panel25";
-         this.panel25.Size = new System.Drawing.Size(216, 50);
+         this.panel25.Size = new System.Drawing.Size(220, 54);
          this.panel25.TabIndex = 0;
          this.panel25.Tag = "25";
          this.panel25.Click += new System.EventHandler(this.panel_Click);
@@ -424,9 +443,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel26.BackColor = System.Drawing.Color.Silver;
-         this.panel26.Location = new System.Drawing.Point(965, 384);
+         this.panel26.Location = new System.Drawing.Point(963, 382);
+         this.panel26.Margin = new System.Windows.Forms.Padding(1);
          this.panel26.Name = "panel26";
-         this.panel26.Size = new System.Drawing.Size(68, 50);
+         this.panel26.Size = new System.Drawing.Size(72, 54);
          this.panel26.TabIndex = 0;
          this.panel26.Tag = "26";
          this.panel26.Click += new System.EventHandler(this.panel_Click);
@@ -438,9 +458,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel27.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel27, 2);
-         this.panel27.Location = new System.Drawing.Point(1039, 384);
+         this.panel27.Location = new System.Drawing.Point(1037, 382);
+         this.panel27.Margin = new System.Windows.Forms.Padding(1);
          this.panel27.Name = "panel27";
-         this.panel27.Size = new System.Drawing.Size(150, 50);
+         this.panel27.Size = new System.Drawing.Size(154, 54);
          this.panel27.TabIndex = 0;
          this.panel27.Tag = "27";
          this.panel27.Click += new System.EventHandler(this.panel_Click);
@@ -451,9 +472,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel31.BackColor = System.Drawing.Color.Silver;
-         this.panel31.Location = new System.Drawing.Point(3, 247);
+         this.panel31.Location = new System.Drawing.Point(1, 245);
+         this.panel31.Margin = new System.Windows.Forms.Padding(1);
          this.panel31.Name = "panel31";
-         this.panel31.Size = new System.Drawing.Size(68, 131);
+         this.panel31.Size = new System.Drawing.Size(72, 135);
          this.panel31.TabIndex = 0;
          this.panel31.Tag = "31";
          this.panel31.Click += new System.EventHandler(this.panel_Click);
@@ -464,9 +486,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel32.BackColor = System.Drawing.Color.Silver;
-         this.panel32.Location = new System.Drawing.Point(77, 247);
+         this.panel32.Location = new System.Drawing.Point(75, 245);
+         this.panel32.Margin = new System.Windows.Forms.Padding(1);
          this.panel32.Name = "panel32";
-         this.panel32.Size = new System.Drawing.Size(68, 131);
+         this.panel32.Size = new System.Drawing.Size(72, 135);
          this.panel32.TabIndex = 0;
          this.panel32.Tag = "32";
          this.panel32.Click += new System.EventHandler(this.panel_Click);
@@ -477,9 +500,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel33.BackColor = System.Drawing.Color.Silver;
-         this.panel33.Location = new System.Drawing.Point(225, 247);
+         this.panel33.Location = new System.Drawing.Point(223, 245);
+         this.panel33.Margin = new System.Windows.Forms.Padding(1);
          this.panel33.Name = "panel33";
-         this.panel33.Size = new System.Drawing.Size(68, 131);
+         this.panel33.Size = new System.Drawing.Size(72, 135);
          this.panel33.TabIndex = 0;
          this.panel33.Tag = "33";
          this.panel33.Click += new System.EventHandler(this.panel_Click);
@@ -490,9 +514,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel34.BackColor = System.Drawing.Color.Silver;
-         this.panel34.Location = new System.Drawing.Point(521, 247);
+         this.panel34.Location = new System.Drawing.Point(519, 245);
+         this.panel34.Margin = new System.Windows.Forms.Padding(1);
          this.panel34.Name = "panel34";
-         this.panel34.Size = new System.Drawing.Size(68, 131);
+         this.panel34.Size = new System.Drawing.Size(72, 135);
          this.panel34.TabIndex = 0;
          this.panel34.Tag = "34";
          this.panel34.Click += new System.EventHandler(this.panel_Click);
@@ -503,9 +528,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel35.BackColor = System.Drawing.Color.Silver;
-         this.panel35.Location = new System.Drawing.Point(595, 247);
+         this.panel35.Location = new System.Drawing.Point(593, 245);
+         this.panel35.Margin = new System.Windows.Forms.Padding(1);
          this.panel35.Name = "panel35";
-         this.panel35.Size = new System.Drawing.Size(68, 131);
+         this.panel35.Size = new System.Drawing.Size(72, 135);
          this.panel35.TabIndex = 0;
          this.panel35.Tag = "35";
          this.panel35.Click += new System.EventHandler(this.panel_Click);
@@ -516,9 +542,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel36.BackColor = System.Drawing.Color.Silver;
-         this.panel36.Location = new System.Drawing.Point(817, 247);
+         this.panel36.Location = new System.Drawing.Point(815, 245);
+         this.panel36.Margin = new System.Windows.Forms.Padding(1);
          this.panel36.Name = "panel36";
-         this.panel36.Size = new System.Drawing.Size(68, 131);
+         this.panel36.Size = new System.Drawing.Size(72, 135);
          this.panel36.TabIndex = 0;
          this.panel36.Tag = "36";
          this.panel36.Click += new System.EventHandler(this.panel_Click);
@@ -529,9 +556,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel37.BackColor = System.Drawing.Color.Silver;
-         this.panel37.Location = new System.Drawing.Point(1039, 247);
+         this.panel37.Location = new System.Drawing.Point(1037, 245);
+         this.panel37.Margin = new System.Windows.Forms.Padding(1);
          this.panel37.Name = "panel37";
-         this.panel37.Size = new System.Drawing.Size(68, 131);
+         this.panel37.Size = new System.Drawing.Size(72, 135);
          this.panel37.TabIndex = 0;
          this.panel37.Tag = "37";
          this.panel37.Click += new System.EventHandler(this.panel_Click);
@@ -542,9 +570,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel38.BackColor = System.Drawing.Color.Silver;
-         this.panel38.Location = new System.Drawing.Point(1113, 247);
+         this.panel38.Location = new System.Drawing.Point(1111, 245);
+         this.panel38.Margin = new System.Windows.Forms.Padding(1);
          this.panel38.Name = "panel38";
-         this.panel38.Size = new System.Drawing.Size(76, 131);
+         this.panel38.Size = new System.Drawing.Size(80, 135);
          this.panel38.TabIndex = 0;
          this.panel38.Tag = "38";
          this.panel38.Click += new System.EventHandler(this.panel_Click);
@@ -555,9 +584,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel41.BackColor = System.Drawing.Color.Silver;
-         this.panel41.Location = new System.Drawing.Point(3, 105);
+         this.panel41.Location = new System.Drawing.Point(1, 103);
+         this.panel41.Margin = new System.Windows.Forms.Padding(1);
          this.panel41.Name = "panel41";
-         this.panel41.Size = new System.Drawing.Size(68, 136);
+         this.panel41.Size = new System.Drawing.Size(72, 140);
          this.panel41.TabIndex = 0;
          this.panel41.Tag = "41";
          this.panel41.Click += new System.EventHandler(this.panel_Click);
@@ -568,9 +598,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel42.BackColor = System.Drawing.Color.Silver;
-         this.panel42.Location = new System.Drawing.Point(77, 105);
+         this.panel42.Location = new System.Drawing.Point(75, 103);
+         this.panel42.Margin = new System.Windows.Forms.Padding(1);
          this.panel42.Name = "panel42";
-         this.panel42.Size = new System.Drawing.Size(68, 136);
+         this.panel42.Size = new System.Drawing.Size(72, 140);
          this.panel42.TabIndex = 0;
          this.panel42.Tag = "42";
          this.panel42.Click += new System.EventHandler(this.panel_Click);
@@ -581,9 +612,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel43.BackColor = System.Drawing.Color.Silver;
-         this.panel43.Location = new System.Drawing.Point(225, 105);
+         this.panel43.Location = new System.Drawing.Point(223, 103);
+         this.panel43.Margin = new System.Windows.Forms.Padding(1);
          this.panel43.Name = "panel43";
-         this.panel43.Size = new System.Drawing.Size(68, 136);
+         this.panel43.Size = new System.Drawing.Size(72, 140);
          this.panel43.TabIndex = 0;
          this.panel43.Tag = "43";
          this.panel43.Click += new System.EventHandler(this.panel_Click);
@@ -594,9 +626,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel44.BackColor = System.Drawing.Color.Silver;
-         this.panel44.Location = new System.Drawing.Point(521, 105);
+         this.panel44.Location = new System.Drawing.Point(519, 103);
+         this.panel44.Margin = new System.Windows.Forms.Padding(1);
          this.panel44.Name = "panel44";
-         this.panel44.Size = new System.Drawing.Size(68, 136);
+         this.panel44.Size = new System.Drawing.Size(72, 140);
          this.panel44.TabIndex = 0;
          this.panel44.Tag = "44";
          this.panel44.Click += new System.EventHandler(this.panel_Click);
@@ -607,9 +640,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel45.BackColor = System.Drawing.Color.Silver;
-         this.panel45.Location = new System.Drawing.Point(595, 105);
+         this.panel45.Location = new System.Drawing.Point(593, 103);
+         this.panel45.Margin = new System.Windows.Forms.Padding(1);
          this.panel45.Name = "panel45";
-         this.panel45.Size = new System.Drawing.Size(68, 136);
+         this.panel45.Size = new System.Drawing.Size(72, 140);
          this.panel45.TabIndex = 0;
          this.panel45.Tag = "45";
          this.panel45.Click += new System.EventHandler(this.panel_Click);
@@ -620,9 +654,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel46.BackColor = System.Drawing.Color.Silver;
-         this.panel46.Location = new System.Drawing.Point(817, 105);
+         this.panel46.Location = new System.Drawing.Point(815, 103);
+         this.panel46.Margin = new System.Windows.Forms.Padding(1);
          this.panel46.Name = "panel46";
-         this.panel46.Size = new System.Drawing.Size(68, 136);
+         this.panel46.Size = new System.Drawing.Size(72, 140);
          this.panel46.TabIndex = 0;
          this.panel46.Tag = "46";
          this.panel46.Click += new System.EventHandler(this.panel_Click);
@@ -633,9 +668,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel47.BackColor = System.Drawing.Color.Silver;
-         this.panel47.Location = new System.Drawing.Point(1039, 105);
+         this.panel47.Location = new System.Drawing.Point(1037, 103);
+         this.panel47.Margin = new System.Windows.Forms.Padding(1);
          this.panel47.Name = "panel47";
-         this.panel47.Size = new System.Drawing.Size(68, 136);
+         this.panel47.Size = new System.Drawing.Size(72, 140);
          this.panel47.TabIndex = 0;
          this.panel47.Tag = "47";
          this.panel47.Click += new System.EventHandler(this.panel_Click);
@@ -646,9 +682,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel48.BackColor = System.Drawing.Color.Silver;
-         this.panel48.Location = new System.Drawing.Point(1113, 105);
+         this.panel48.Location = new System.Drawing.Point(1111, 103);
+         this.panel48.Margin = new System.Windows.Forms.Padding(1);
          this.panel48.Name = "panel48";
-         this.panel48.Size = new System.Drawing.Size(76, 136);
+         this.panel48.Size = new System.Drawing.Size(80, 140);
          this.panel48.TabIndex = 0;
          this.panel48.Tag = "48";
          this.panel48.Click += new System.EventHandler(this.panel_Click);
@@ -660,9 +697,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel51.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel51, 2);
-         this.panel51.Location = new System.Drawing.Point(3, 54);
+         this.panel51.Location = new System.Drawing.Point(1, 52);
+         this.panel51.Margin = new System.Windows.Forms.Padding(1);
          this.panel51.Name = "panel51";
-         this.panel51.Size = new System.Drawing.Size(142, 45);
+         this.panel51.Size = new System.Drawing.Size(146, 49);
          this.panel51.TabIndex = 0;
          this.panel51.Tag = "51";
          this.panel51.Click += new System.EventHandler(this.panel_Click);
@@ -674,9 +712,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel52.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel52, 3);
-         this.panel52.Location = new System.Drawing.Point(151, 54);
+         this.panel52.Location = new System.Drawing.Point(149, 52);
+         this.panel52.Margin = new System.Windows.Forms.Padding(1);
          this.panel52.Name = "panel52";
-         this.panel52.Size = new System.Drawing.Size(216, 45);
+         this.panel52.Size = new System.Drawing.Size(220, 49);
          this.panel52.TabIndex = 0;
          this.panel52.Tag = "52";
          this.panel52.Click += new System.EventHandler(this.panel_Click);
@@ -687,9 +726,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel53.BackColor = System.Drawing.Color.Silver;
-         this.panel53.Location = new System.Drawing.Point(373, 54);
+         this.panel53.Location = new System.Drawing.Point(371, 52);
+         this.panel53.Margin = new System.Windows.Forms.Padding(1);
          this.panel53.Name = "panel53";
-         this.panel53.Size = new System.Drawing.Size(68, 45);
+         this.panel53.Size = new System.Drawing.Size(72, 49);
          this.panel53.TabIndex = 0;
          this.panel53.Tag = "53";
          this.panel53.Click += new System.EventHandler(this.panel_Click);
@@ -701,9 +741,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel54.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel54, 4);
-         this.panel54.Location = new System.Drawing.Point(447, 54);
+         this.panel54.Location = new System.Drawing.Point(445, 52);
+         this.panel54.Margin = new System.Windows.Forms.Padding(1);
          this.panel54.Name = "panel54";
-         this.panel54.Size = new System.Drawing.Size(290, 45);
+         this.panel54.Size = new System.Drawing.Size(294, 49);
          this.panel54.TabIndex = 0;
          this.panel54.Tag = "54";
          this.panel54.Click += new System.EventHandler(this.panel_Click);
@@ -715,9 +756,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel55.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel55, 3);
-         this.panel55.Location = new System.Drawing.Point(743, 54);
+         this.panel55.Location = new System.Drawing.Point(741, 52);
+         this.panel55.Margin = new System.Windows.Forms.Padding(1);
          this.panel55.Name = "panel55";
-         this.panel55.Size = new System.Drawing.Size(216, 45);
+         this.panel55.Size = new System.Drawing.Size(220, 49);
          this.panel55.TabIndex = 0;
          this.panel55.Tag = "55";
          this.panel55.Click += new System.EventHandler(this.panel_Click);
@@ -728,9 +770,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel56.BackColor = System.Drawing.Color.Silver;
-         this.panel56.Location = new System.Drawing.Point(965, 54);
+         this.panel56.Location = new System.Drawing.Point(963, 52);
+         this.panel56.Margin = new System.Windows.Forms.Padding(1);
          this.panel56.Name = "panel56";
-         this.panel56.Size = new System.Drawing.Size(68, 45);
+         this.panel56.Size = new System.Drawing.Size(72, 49);
          this.panel56.TabIndex = 0;
          this.panel56.Tag = "56";
          this.panel56.Click += new System.EventHandler(this.panel_Click);
@@ -742,9 +785,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel57.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel57, 2);
-         this.panel57.Location = new System.Drawing.Point(1039, 54);
+         this.panel57.Location = new System.Drawing.Point(1037, 52);
+         this.panel57.Margin = new System.Windows.Forms.Padding(1);
          this.panel57.Name = "panel57";
-         this.panel57.Size = new System.Drawing.Size(150, 45);
+         this.panel57.Size = new System.Drawing.Size(154, 49);
          this.panel57.TabIndex = 0;
          this.panel57.Tag = "57";
          this.panel57.Click += new System.EventHandler(this.panel_Click);
@@ -756,9 +800,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel61.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel61, 2);
-         this.panel61.Location = new System.Drawing.Point(3, 3);
+         this.panel61.Location = new System.Drawing.Point(1, 1);
+         this.panel61.Margin = new System.Windows.Forms.Padding(1);
          this.panel61.Name = "panel61";
-         this.panel61.Size = new System.Drawing.Size(142, 45);
+         this.panel61.Size = new System.Drawing.Size(146, 49);
          this.panel61.TabIndex = 0;
          this.panel61.Tag = "61";
          this.panel61.Click += new System.EventHandler(this.panel_Click);
@@ -770,9 +815,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel62.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel62, 3);
-         this.panel62.Location = new System.Drawing.Point(151, 3);
+         this.panel62.Location = new System.Drawing.Point(149, 1);
+         this.panel62.Margin = new System.Windows.Forms.Padding(1);
          this.panel62.Name = "panel62";
-         this.panel62.Size = new System.Drawing.Size(216, 45);
+         this.panel62.Size = new System.Drawing.Size(220, 49);
          this.panel62.TabIndex = 0;
          this.panel62.Tag = "62";
          this.panel62.Click += new System.EventHandler(this.panel_Click);
@@ -783,9 +829,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel63.BackColor = System.Drawing.Color.Silver;
-         this.panel63.Location = new System.Drawing.Point(373, 3);
+         this.panel63.Location = new System.Drawing.Point(371, 1);
+         this.panel63.Margin = new System.Windows.Forms.Padding(1);
          this.panel63.Name = "panel63";
-         this.panel63.Size = new System.Drawing.Size(68, 45);
+         this.panel63.Size = new System.Drawing.Size(72, 49);
          this.panel63.TabIndex = 0;
          this.panel63.Tag = "63";
          this.panel63.Click += new System.EventHandler(this.panel_Click);
@@ -797,9 +844,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel64.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel64, 4);
-         this.panel64.Location = new System.Drawing.Point(447, 3);
+         this.panel64.Location = new System.Drawing.Point(445, 1);
+         this.panel64.Margin = new System.Windows.Forms.Padding(1);
          this.panel64.Name = "panel64";
-         this.panel64.Size = new System.Drawing.Size(290, 45);
+         this.panel64.Size = new System.Drawing.Size(294, 49);
          this.panel64.TabIndex = 0;
          this.panel64.Tag = "64";
          this.panel64.Click += new System.EventHandler(this.panel_Click);
@@ -811,9 +859,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel65.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel65, 3);
-         this.panel65.Location = new System.Drawing.Point(743, 3);
+         this.panel65.Location = new System.Drawing.Point(741, 1);
+         this.panel65.Margin = new System.Windows.Forms.Padding(1);
          this.panel65.Name = "panel65";
-         this.panel65.Size = new System.Drawing.Size(216, 45);
+         this.panel65.Size = new System.Drawing.Size(220, 49);
          this.panel65.TabIndex = 0;
          this.panel65.Tag = "65";
          this.panel65.Click += new System.EventHandler(this.panel_Click);
@@ -824,9 +873,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel66.BackColor = System.Drawing.Color.Silver;
-         this.panel66.Location = new System.Drawing.Point(965, 3);
+         this.panel66.Location = new System.Drawing.Point(963, 1);
+         this.panel66.Margin = new System.Windows.Forms.Padding(1);
          this.panel66.Name = "panel66";
-         this.panel66.Size = new System.Drawing.Size(68, 45);
+         this.panel66.Size = new System.Drawing.Size(72, 49);
          this.panel66.TabIndex = 0;
          this.panel66.Tag = "66";
          this.panel66.Click += new System.EventHandler(this.panel_Click);
@@ -838,9 +888,10 @@ namespace AutoCAD.Architect.TileColor
             | System.Windows.Forms.AnchorStyles.Right)));
          this.panel67.BackColor = System.Drawing.Color.Silver;
          this.tableLayoutPanel1.SetColumnSpan(this.panel67, 2);
-         this.panel67.Location = new System.Drawing.Point(1039, 3);
+         this.panel67.Location = new System.Drawing.Point(1037, 1);
+         this.panel67.Margin = new System.Windows.Forms.Padding(1);
          this.panel67.Name = "panel67";
-         this.panel67.Size = new System.Drawing.Size(150, 45);
+         this.panel67.Size = new System.Drawing.Size(154, 49);
          this.panel67.TabIndex = 0;
          this.panel67.Tag = "67";
          this.panel67.Click += new System.EventHandler(this.panel_Click);
@@ -915,7 +966,7 @@ namespace AutoCAD.Architect.TileColor
          // 
          // buttonPaint
          // 
-         this.buttonPaint.Location = new System.Drawing.Point(628, 57);
+         this.buttonPaint.Location = new System.Drawing.Point(573, 58);
          this.buttonPaint.Name = "buttonPaint";
          this.buttonPaint.Size = new System.Drawing.Size(75, 23);
          this.buttonPaint.TabIndex = 3;
@@ -925,29 +976,61 @@ namespace AutoCAD.Architect.TileColor
          // 
          // buttonAddColor
          // 
-         this.buttonAddColor.Location = new System.Drawing.Point(270, 58);
+         this.buttonAddColor.Location = new System.Drawing.Point(293, 58);
          this.buttonAddColor.Name = "buttonAddColor";
-         this.buttonAddColor.Size = new System.Drawing.Size(66, 23);
+         this.buttonAddColor.Size = new System.Drawing.Size(22, 23);
          this.buttonAddColor.TabIndex = 4;
-         this.buttonAddColor.Text = "Добавить";
+         this.buttonAddColor.Text = "+";
          this.buttonAddColor.UseVisualStyleBackColor = true;
          this.buttonAddColor.Click += new System.EventHandler(this.buttonAddColor_Click);
          // 
          // buttonChangeColor
          // 
-         this.buttonChangeColor.Location = new System.Drawing.Point(342, 58);
+         this.buttonChangeColor.Location = new System.Drawing.Point(321, 58);
          this.buttonChangeColor.Name = "buttonChangeColor";
-         this.buttonChangeColor.Size = new System.Drawing.Size(66, 23);
+         this.buttonChangeColor.Size = new System.Drawing.Size(21, 23);
          this.buttonChangeColor.TabIndex = 4;
-         this.buttonChangeColor.Text = "Изменить";
+         this.buttonChangeColor.Text = "!";
          this.buttonChangeColor.UseVisualStyleBackColor = true;
+         this.buttonChangeColor.Click += new System.EventHandler(this.buttonChangeColor_Click);
+         // 
+         // buttonDelColor
+         // 
+         this.buttonDelColor.Location = new System.Drawing.Point(348, 58);
+         this.buttonDelColor.Name = "buttonDelColor";
+         this.buttonDelColor.Size = new System.Drawing.Size(21, 23);
+         this.buttonDelColor.TabIndex = 4;
+         this.buttonDelColor.Text = "-";
+         this.buttonDelColor.UseVisualStyleBackColor = true;
+         // 
+         // buttonAddPTC
+         // 
+         this.buttonAddPTC.Location = new System.Drawing.Point(172, 58);
+         this.buttonAddPTC.Name = "buttonAddPTC";
+         this.buttonAddPTC.Size = new System.Drawing.Size(22, 23);
+         this.buttonAddPTC.TabIndex = 4;
+         this.buttonAddPTC.Text = "+";
+         this.buttonAddPTC.UseVisualStyleBackColor = true;
+         this.buttonAddPTC.Click += new System.EventHandler(this.buttonAddPTC_Click);
+         // 
+         // buttonDelPTC
+         // 
+         this.buttonDelPTC.Location = new System.Drawing.Point(203, 58);
+         this.buttonDelPTC.Name = "buttonDelPTC";
+         this.buttonDelPTC.Size = new System.Drawing.Size(21, 23);
+         this.buttonDelPTC.TabIndex = 4;
+         this.buttonDelPTC.Text = "-";
+         this.buttonDelPTC.UseVisualStyleBackColor = true;
          // 
          // FormPanelColorEditor
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(1235, 700);
+         this.Controls.Add(this.buttonDelPTC);
+         this.Controls.Add(this.buttonDelColor);
          this.Controls.Add(this.buttonChangeColor);
+         this.Controls.Add(this.buttonAddPTC);
          this.Controls.Add(this.buttonAddColor);
          this.Controls.Add(this.buttonPaint);
          this.Controls.Add(this.label3);
@@ -1030,5 +1113,8 @@ namespace AutoCAD.Architect.TileColor
       private System.Windows.Forms.Button buttonPaint;
       private System.Windows.Forms.Button buttonAddColor;
       private System.Windows.Forms.Button buttonChangeColor;
+      private System.Windows.Forms.Button buttonDelColor;
+      private System.Windows.Forms.Button buttonAddPTC;
+      private System.Windows.Forms.Button buttonDelPTC;
    }
 }

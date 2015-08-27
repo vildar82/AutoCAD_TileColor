@@ -22,6 +22,6 @@ namespace AutoCAD.Architect.TileColor
       public static TileColor Default ()
       {
          return new TileColor(0, Color.FromColorIndex(ColorMethod.ByAci, 1));
-      }
+      }      
    }
 }
